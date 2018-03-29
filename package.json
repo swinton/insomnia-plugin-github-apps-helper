@@ -1,0 +1,21 @@
+{
+  "name": "insomnia-plugin-github-apps-helper",
+  "version": "1.0.0",
+  "description": "Helper template tags for interacting with GitHub Apps using Insomnia",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "insomnia"
+  ],
+  "insomnia": {
+    "name": "github-apps-helper",
+    "description": "Helper template tags for interacting with GitHub Apps using Insomnia"
+  },
+  "author": "Steve Winton <stevewinton@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "jsonwebtoken": "^8.1.0"
+  }
+}
