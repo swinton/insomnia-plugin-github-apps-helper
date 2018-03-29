@@ -28,7 +28,7 @@ const createJWT = function ({id, cert}) {
 module.exports.templateTags = [{
     name: 'jwt',
     displayName: 'JSON Web Token',
-    description: 'https://developer.github.com/apps/building-github-apps/authentication-options-for-github-apps/#authenticating-as-a-github-app',
+    description: 'Generates a JSON Web Token, allowing you to authenticate with the GitHub API as your GitHub App',
     args: [
         {
           displayName: 'ID',
@@ -37,7 +37,7 @@ module.exports.templateTags = [{
         },
         {
             displayName: 'Private key file',
-            description: 'Path to private key file',
+            description: 'Path to private key file in PEM format',
             type: 'string'
         }
     ],
