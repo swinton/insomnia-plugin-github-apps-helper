@@ -1,6 +1,6 @@
 {
   "name": "insomnia-plugin-github-apps-helper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Helper template tags for interacting with GitHub Apps using Insomnia",
   "main": "index.js",
   "scripts": {
