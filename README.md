@@ -1,9 +1,12 @@
 # `github-apps-helper`
 
-Helper [template tags](https://support.insomnia.rest/article/40-template-tags) for interacting with [GitHub Apps](https://developer.github.com/apps/) using [**Insomnia**](https://insomnia.rest/).
+Helper [template tags](https://support.insomnia.rest/article/40-template-tags) for interacting with [GitHub Apps](https://developer.github.com/apps/) using [**Insomnia**](https://insomnia.rest/) :sleeping:
 
+## Installation
 
-## Template Tags
+Install `insomnia-plugin-github-apps-helper` from the Plugins tab within the application preferences dialog.
+
+## Template Tags Usage
 
 ### `jwt`
 
