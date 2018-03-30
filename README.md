@@ -4,7 +4,10 @@ Helper [template tags](https://support.insomnia.rest/article/40-template-tags) f
 
 ## Installation
 
-Install `insomnia-plugin-github-apps-helper` from the Plugins tab within the application preferences dialog.
+Install **<kbd>insomnia-plugin-github-apps-helper</kbd>** from the Plugins tab within the application preferences dialog:
+
+<img width="784" alt="screen shot 2018-03-29 at 8 48 05 pm" src="https://user-images.githubusercontent.com/27806/38121062-9217a894-3392-11e8-9f22-ff8a0f072fc5.png">
+
 
 ## Template Tags Usage
 
