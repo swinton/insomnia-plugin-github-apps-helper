@@ -1,6 +1,6 @@
 # `github-apps-helper`
 
-Helper [template tags](https://support.insomnia.rest/article/40-template-tags) for interacting with [GitHub Apps](https://developer.github.com/apps/) using [**Insomnia**](https://insomnia.rest/) :sleeping:
+> Helper [template tags](https://support.insomnia.rest/article/40-template-tags) for interacting with [GitHub Apps](https://developer.github.com/apps/) using [**Insomnia**](https://insomnia.rest/) :sleeping:
 
 ## Installation
 
@@ -47,6 +47,12 @@ Set any additional headers required, currently GitHub Apps require a custom medi
 
 Hit `Send`. You're good to go :rocket:
 
-## Request chaining
+## Authenticate as a GitHub App installation
 
-`TBD`
+Using Insomnia's [request chaining](https://support.insomnia.rest/article/43-chaining-requests) feature you can easily authenticate as an installation of your GitHub App.
+
+1. Lookup the [installations for your GitHub Apps](https://developer.github.com/v3/apps/#find-installations)
+1. Save the installation id for the installation you want to use as an Environment variable, e.g. <kbd>github_app_installation_id</kbd>
+1. Create a `POST` request to [create an access token for that installation id](https://developer.github.com/v3/apps/#create-a-new-installation-token)
+1. Create a further environment variable, <kbd>github_app_installation_access_token</kbd>, which will use the `Response => Body` from your previous `POST` request, the filter for this should be `$.token`
+1. Use this environment variable as the `Bearer Token` to authenticate as that installation
