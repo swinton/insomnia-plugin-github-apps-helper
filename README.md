@@ -21,6 +21,9 @@ Following installation, it is recommended to set the following [environment vari
 
 ## Template Tags Usage
 
+1. [`jwt`](#jwt): Generates a JSON Web Token, allowing you to authenticate with the GitHub API as your GitHub App
+1. [`installation_access_token`](#installation_access_token): Generates an Installation Access Token, allowing you to authenticate with the GitHub API as an installation of your GitHub App
+
 ### `jwt`
 
 Generates a JSON Web Token, allowing you to [authenticate with the GitHub API as your GitHub App](https://developer.github.com/apps/building-github-apps/authentication-options-for-github-apps/#authenticating-as-a-github-app).
@@ -29,19 +32,19 @@ Generates a JSON Web Token, allowing you to [authenticate with the GitHub API as
 
 Create a new request, e.g. `GET /app`:
 
-<img width="791" alt="screen shot 2018-03-30 at 10 38 07 am" src="https://user-images.githubusercontent.com/27806/38143601-ded0fd60-3406-11e8-8474-efdceb4bd66d.png">
+<img width="791" alt="screen shot 2019-02-22 at 7 29 33 pm" src="https://user-images.githubusercontent.com/27806/53279699-7f6a0080-36d8-11e9-91e6-87b890743e46.png">
 
 Set [the appropriate URL for your request](https://developer.github.com/v3/apps/#get-a-single-github-app), and configure auth to `Bearer Token`:
 
-<img width="675" alt="screen shot 2018-03-30 at 10 38 35 am" src="https://user-images.githubusercontent.com/27806/38143603-e0b0a69e-3406-11e8-9c56-c2b75caca3b2.png">
+<img width="604" alt="screen shot 2019-02-22 at 7 30 08 pm" src="https://user-images.githubusercontent.com/27806/53279701-81cc5a80-36d8-11e9-8f6e-b67e0f3b66ad.png">
 
 Use auto-complete to select the `JSON Web Token` tag:
 
-<img width="615" alt="screen shot 2018-03-30 at 10 38 48 am" src="https://user-images.githubusercontent.com/27806/38143606-e20892ae-3406-11e8-9f3a-042a74980a60.png">
+<img width="600" alt="screen shot 2019-02-22 at 7 30 27 pm" src="https://user-images.githubusercontent.com/27806/53279704-842eb480-36d8-11e9-9cef-9b7ac9bf0e51.png">
 
 Edit the tag and populate the values using your environment variables, note the live preview generates example output:
 
-<img width="789" alt="screen shot 2018-03-30 at 10 42 36 am" src="https://user-images.githubusercontent.com/27806/38143697-5a4b5e7c-3407-11e8-9d53-8476c475115b.png">
+<img width="797" alt="screen shot 2019-02-22 at 7 33 39 pm" src="https://user-images.githubusercontent.com/27806/53279748-c7892300-36d8-11e9-90c8-95a4b38ebeee.png">
 
 Hit `Send`. You're good to go :rocket:
 
