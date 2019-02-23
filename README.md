@@ -6,7 +6,7 @@
 
 Install **<kbd>insomnia-plugin-github-apps-helper</kbd>** from the Plugins tab within the application preferences dialog:
 
-![installation](https://user-images.githubusercontent.com/27806/38121163-357640ae-3393-11e8-81d8-c088002041f6.gif)
+![installation](https://user-images.githubusercontent.com/27806/53279590-57c66880-36d7-11e9-8207-2b68a0778961.gif)
 
 ## Configuration
 
