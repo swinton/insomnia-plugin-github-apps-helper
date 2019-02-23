@@ -40,11 +40,6 @@ Edit the tag and populate the values using your environment variables, note the 
 
 <img width="789" alt="screen shot 2018-03-30 at 10 42 36 am" src="https://user-images.githubusercontent.com/27806/38143697-5a4b5e7c-3407-11e8-9d53-8476c475115b.png">
 
-Set any additional headers required, currently GitHub Apps require a custom media type in the Accept Header for your requests. This should be `application/vnd.github.machine-man-preview+json`:
-
-
-<img width="822" alt="screen shot 2018-03-30 at 10 40 30 am" src="https://user-images.githubusercontent.com/27806/38143612-e7f7946c-3406-11e8-84f6-18ec1e52c18c.png">
-
 Hit `Send`. You're good to go :rocket:
 
 ## Authenticate as a GitHub App installation
