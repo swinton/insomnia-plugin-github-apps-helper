@@ -21,7 +21,7 @@
     "lint": "eslint index.js"
   },
   "dependencies": {
-    "jsonwebtoken": "^8.1.0"
+    "@octokit/app": "^2.2.1"
   },
   "devDependencies": {
     "eslint": "^5.13.0",

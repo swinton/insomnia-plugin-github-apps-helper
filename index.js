@@ -1,16 +1,5 @@
 const fs = require('fs');
-const jwt = require('jsonwebtoken');
-
-const createJWT = function createJWT({ id, cert }) {
-  const payload = {
-    iat: Math.floor(new Date() / 1000), // Issued at time
-    exp: Math.floor(new Date() / 1000) + 60, // JWT expiration time
-    iss: id // GitHub App ID
-  };
-
-  // Sign with RSA SHA256
-  return jwt.sign(payload, cert, { algorithm: 'RS256' });
-};
+const App = require('@octokit/app');
 
 module.exports.templateTags = [
   {
@@ -30,13 +19,9 @@ module.exports.templateTags = [
       }
     ],
     async run(context, id, path) {
-      const cert = fs.readFileSync(path);
-      const tok = createJWT({
-        id,
-        cert
-      });
-
-      return tok;
+      const privateKey = fs.readFileSync(path);
+      const app = new App({ id, privateKey });
+      return app.getSignedJsonWebToken();
     }
   }
 ];
