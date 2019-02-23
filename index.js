@@ -1,5 +1,5 @@
 const fs = require('fs');
-const App = require('@octokit/app');
+const App = require('./lib/app');
 
 const getPrivateKey = path => fs.readFileSync(path);
 
@@ -49,7 +49,7 @@ module.exports.templateTags = [
     ],
     async run(context, id, path, installationId) {
       const app = new App({ id, privateKey: getPrivateKey(path) });
-      return app.getInstallationAccessToken({ installationId });
+      return app.getCachedInstallationAccessToken({ installationId });
     }
   }
 ];
