@@ -12,10 +12,12 @@ Install **<kbd>insomnia-plugin-github-apps-helper</kbd>** from the Plugins tab w
 
 Following installation, it is recommended to set the following [environment variables within Insomnia](https://support.insomnia.rest/article/18-environment-variables):
 
-1. <kbd>github_app_id</kbd>: The ID for your GitHub App, found under `https://github.com/settings/apps/your-app`
+1. <kbd>github_app_id</kbd>: The ID for your GitHub App
+    - This is available from the settings page of your GitHub App, as `App ID`.
 1. <kbd>github_app_private_key</kbd>: The path on your machine to a private key for your GitHub App, e.g. `/path/to/your-app.YYYY-MM-DD.private-key.pem`
     - More information on generating and downloading private keys for your GitHub Apps is [available in the documentation](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#generating-a-private-key)
-1. <kbd>github_app_installation_id</kbd>: The ID for an installation of your GitHub App, found using [the `GET /app/installations` API](https://developer.github.com/v3/apps/#find-installations)
+1. <kbd>github_app_installation_id</kbd>: The ID for an installation of your GitHub App
+    - Found using [the `GET /app/installations`](https://developer.github.com/v3/apps/#find-installations) API endpoint
 
 ## Template Tags Usage
 
