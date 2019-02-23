@@ -1,7 +1,7 @@
 const fs = require('fs');
 const jwt = require('jsonwebtoken');
 
-const createJWT = function({ id, cert }) {
+const createJWT = function createJWT({ id, cert }) {
   const payload = {
     iat: Math.floor(new Date() / 1000), // Issued at time
     exp: Math.floor(new Date() / 1000) + 60, // JWT expiration time
