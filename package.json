@@ -1,25 +1,45 @@
 {
   "name": "insomnia-plugin-github-apps-helper",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Helper template tags for interacting with GitHub Apps using Insomnia",
-  "main": "index.js",
+  "author": "Steve Winton <stevewinton@gmail.com> (https://github.com/swinton)",
   "repository": {
     "type": "git",
     "url": "https://github.com/swinton/insomnia-plugin-github-apps-helper.git"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "bugs": {
+    "url": "https://github.com/swinton/insomnia-plugin-github-apps-helper/issues"
   },
+  "homepage": "https://github.com/swinton/insomnia-plugin-github-apps-helper#readme",
+  "main": "index.js",
+  "license": "ISC",
   "keywords": [
     "insomnia"
   ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint index.js"
+  },
+  "dependencies": {
+    "jsonwebtoken": "^8.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.13.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^3.6.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^2.7.0",
+    "eslint-plugin-react": "^7.12.4",
+    "jest": "^23.5.0",
+    "nodemon": "^1.18.4",
+    "prettier": "^1.16.4"
+  },
+  "engines": {
+    "node": ">= 8.3.0"
+  },
   "insomnia": {
     "name": "github-apps-helper",
     "description": "Helper template tags for interacting with GitHub Apps using Insomnia"
-  },
-  "author": "Steve Winton <stevewinton@gmail.com>",
-  "license": "ISC",
-  "dependencies": {
-    "jsonwebtoken": "^8.1.0"
   }
 }
