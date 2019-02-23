@@ -1,7 +1,7 @@
 const fs = require('fs');
 const App = require('@octokit/app');
 
-const getPrivateKey = (path) => fs.readFileSync(path);
+const getPrivateKey = path => fs.readFileSync(path);
 
 module.exports.templateTags = [
   {
@@ -28,7 +28,8 @@ module.exports.templateTags = [
   {
     name: 'installation_access_token',
     displayName: 'Installation Access Token',
-    description: 'Generates an Installation Access Token, allowing you to authenticate with the GitHub API as an installation of your GitHub App',
+    description:
+      'Generates an Installation Access Token, allowing you to authenticate with the GitHub API as an installation of your GitHub App',
     args: [
       {
         displayName: 'App ID',
@@ -48,7 +49,7 @@ module.exports.templateTags = [
     ],
     async run(context, id, path, installationId) {
       const app = new App({ id, privateKey: getPrivateKey(path) });
-      return app.getInstallationAccessToken({ installationId })
+      return app.getInstallationAccessToken({ installationId });
     }
   }
 ];
