@@ -21,7 +21,8 @@
     "lint": "eslint index.js lib/**.js"
   },
   "dependencies": {
-    "@octokit/app": "^2.2.1"
+    "@octokit/app": "^2.2.1",
+    "flat-cache": "^2.0.1"
   },
   "devDependencies": {
     "eslint": "^5.13.0",
