@@ -1,6 +1,6 @@
 {
   "name": "insomnia-plugin-github-apps-helper",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "Helper template tags for interacting with GitHub Apps using Insomnia",
   "author": "Steve Winton <stevewinton@gmail.com> (https://github.com/swinton)",
   "repository": {
@@ -18,10 +18,11 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint index.js"
+    "lint": "eslint index.js lib/**.js"
   },
   "dependencies": {
-    "@octokit/app": "^2.2.1"
+    "@octokit/app": "^2.2.1",
+    "flat-cache": "^2.0.1"
   },
   "devDependencies": {
     "eslint": "^5.13.0",
