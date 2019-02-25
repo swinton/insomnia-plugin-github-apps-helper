@@ -20,14 +20,14 @@ module.exports.templateTags = [
         type: 'string'
       }
     ],
-    async run({context}, ...args) {
+    async run({ context }, ...args) {
       // Destructure id, path from context
-      let {github_app_id: id, github_app_private_key_path: path} = context;
+      let { github_app_id: id, github_app_private_key_path: path } = context;
 
       // Allow id, path to be overridden via args
       const [tagId = 0, tagPath = ''] = args;
-      id = (tagId > 0 ? tagId : id);
-      path  = (tagPath.length > 0 ? tagPath : path);
+      id = tagId > 0 ? tagId : id;
+      path = tagPath.length > 0 ? tagPath : path;
 
       // Instatiate App with id, path
       const app = new App({ id, privateKey: getPrivateKey(path) });
@@ -58,15 +58,19 @@ module.exports.templateTags = [
         type: 'string'
       }
     ],
-    async run({context}, ...args) {
+    async run({ context }, ...args) {
       // Destructure installationId, id, path from context
-      let {github_app_installation_id: installationId, github_app_id: id, github_app_private_key_path: path} = context;
+      let {
+        github_app_installation_id: installationId,
+        github_app_id: id,
+        github_app_private_key_path: path
+      } = context;
 
       // Allow installationId, id, path to be overridden via args
       const [tagInstallationId = 0, tagId = 0, tagPath = ''] = args;
-      installationId = (tagInstallationId > 0 ? tagInstallationId : installationId);
-      id = (tagId > 0 ? tagId : id);
-      path  = (tagPath.length > 0 ? tagPath : path);
+      installationId = tagInstallationId > 0 ? tagInstallationId : installationId;
+      id = tagId > 0 ? tagId : id;
+      path = tagPath.length > 0 ? tagPath : path;
 
       // Instatiate App with id, path
       const app = new App({ id, privateKey: getPrivateKey(path) });
