@@ -1,6 +1,15 @@
 # `github-apps-helper`
 
-> Helper [template tags](https://support.insomnia.rest/article/40-template-tags) for interacting with [GitHub Apps](https://developer.github.com/apps/) using [**Insomnia**](https://insomnia.rest/) :sleeping:
+> :sleeping: **Insomnia** [template tags](https://support.insomnia.rest/article/40-template-tags) for interacting with GitHub APIs using **[GitHub Apps](https://developer.github.com/apps/)**
+
+Provides custom template tags to generate JWTs (JSON Web Tokens) and _installation access tokens_, easing GitHub App authentication when working with GitHub APIs within Insomnia.
+
+## Features
+
+1. JWT (JSON Web Token) generation, for [authenticating as a GitHub App](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)
+1. Installation access token generation, for [authentication as a GitHub App installation](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)
+1. Caching, and automatic regeneration, of installation access tokens
+1. Environment-wide configuration, that can be overridden per-request, to ease setup
 
 ## Installation
 
