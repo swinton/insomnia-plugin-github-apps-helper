@@ -20,8 +20,19 @@ module.exports.templateTags = [
         type: 'string'
       }
     ],
-    async run(context, id, path) {
+    async run({ context }, ...args) {
+      // Destructure id, path from context
+      let { github_app_id: id, github_app_private_key_path: path } = context;
+
+      // Allow id, path to be overridden via args
+      const [tagId = 0, tagPath = ''] = args;
+      id = tagId > 0 ? tagId : id;
+      path = tagPath.length > 0 ? tagPath : path;
+
+      // Instatiate App with id, path
       const app = new App({ id, privateKey: getPrivateKey(path) });
+
+      // Return JWT
       return app.getSignedJsonWebToken();
     }
   },
@@ -32,6 +43,11 @@ module.exports.templateTags = [
       'Generates an Installation Access Token, allowing you to authenticate with the GitHub API as an installation of your GitHub App',
     args: [
       {
+        displayName: 'Installation ID',
+        description: 'ID of GitHub App Installation',
+        type: 'number'
+      },
+      {
         displayName: 'App ID',
         description: 'ID of GitHub App',
         type: 'number'
@@ -40,15 +56,26 @@ module.exports.templateTags = [
         displayName: 'Private key file',
         description: 'Path to private key file in PEM format',
         type: 'string'
-      },
-      {
-        displayName: 'Installation ID',
-        description: 'ID of GitHub App Installation',
-        type: 'number'
       }
     ],
-    async run(context, id, path, installationId) {
+    async run({ context }, ...args) {
+      // Destructure installationId, id, path from context
+      let {
+        github_app_installation_id: installationId,
+        github_app_id: id,
+        github_app_private_key_path: path
+      } = context;
+
+      // Allow installationId, id, path to be overridden via args
+      const [tagInstallationId = 0, tagId = 0, tagPath = ''] = args;
+      installationId = tagInstallationId > 0 ? tagInstallationId : installationId;
+      id = tagId > 0 ? tagId : id;
+      path = tagPath.length > 0 ? tagPath : path;
+
+      // Instatiate App with id, path
       const app = new App({ id, privateKey: getPrivateKey(path) });
+
+      // Return installation access token
       return app.getCachedInstallationAccessToken({ installationId });
     }
   }
