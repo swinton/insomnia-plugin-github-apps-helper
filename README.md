@@ -67,7 +67,7 @@ Create a new request, e.g. `GET /installation/repositories`:
 
 Set [the appropriate URL for your request](https://developer.github.com/v3/apps/installations/#list-repositories), and configure auth to `Bearer Token`:
 
-<img width="604" alt="screen shot 2019-02-22 at 7 30 08 pm" src="https://user-images.githubusercontent.com/27806/53279701-81cc5a80-36d8-11e9-8f6e-b67e0f3b66ad.png">
+![installation-repositories-bearer-token-higlight-option](https://user-images.githubusercontent.com/15894826/54786723-d8995700-4be6-11e9-8a13-173a48530dac.png)
 
 Use auto-complete to select the `Installation Access Token` tag:
 
