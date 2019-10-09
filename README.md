@@ -27,6 +27,7 @@ Set the following [environment variables within Insomnia](https://support.insomn
     - More information on generating and downloading private keys for your GitHub Apps is [available in the documentation](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#generating-a-private-key)
 1. <kbd>github_app_installation_id</kbd>: The ID for an installation of your GitHub App
     - Found using [the `GET /app/installations`](https://developer.github.com/v3/apps/#find-installations) API endpoint
+1. <kbd>github_api_root</kbd>: The API Root for your GitHub App
 
 ## Usage
 
