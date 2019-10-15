@@ -27,7 +27,7 @@ module.exports.templateTags = [
     ],
     async run({ context }, ...args) {
       // Destructure id, path from context
-      let { github_app_id: id, github_app_private_key_path: path, github_api_root: githubApiRoot } = context;
+      let { github_app_id: id, github_app_private_key_path: path, github_api_root: githubApiRoot = 'https://api.github.com' } = context;
 
       // Allow id, path to be overridden via args
       const [tagId = 0, tagPath = ''] = args;
