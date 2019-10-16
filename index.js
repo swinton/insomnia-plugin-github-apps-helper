@@ -18,19 +18,28 @@ module.exports.templateTags = [
         displayName: 'Private key file',
         description: 'Path to private key file in PEM format',
         type: 'string'
+      },
+      {
+        displayName: 'GitHub API Root',
+        description: 'The base URL to which to send requests',
+        type: 'string'
       }
     ],
     async run({ context }, ...args) {
       // Destructure id, path from context
-      let { github_app_id: id, github_app_private_key_path: path } = context;
+      let { github_app_id: id, github_app_private_key_path: path, github_api_root: githubApiRoot = 'https://api.github.com' } = context;
 
       // Allow id, path to be overridden via args
       const [tagId = 0, tagPath = ''] = args;
       id = tagId > 0 ? tagId : id;
       path = tagPath.length > 0 ? tagPath : path;
 
-      // Instatiate App with id, path
-      const app = new App({ id, privateKey: getPrivateKey(path) });
+      // Instatiate App with id, path, apiRoot
+      const app = new App({
+        id,
+        privateKey: getPrivateKey(path),
+        baseUrl: githubApiRoot
+      });
 
       // Return JWT
       return app.getSignedJsonWebToken();
@@ -56,6 +65,11 @@ module.exports.templateTags = [
         displayName: 'Private key file',
         description: 'Path to private key file in PEM format',
         type: 'string'
+      },
+      {
+        displayName: 'GitHub API Root',
+        description: 'The base URL to which to send requests',
+        type: 'string'
       }
     ],
     async run({ context }, ...args) {
@@ -63,7 +77,8 @@ module.exports.templateTags = [
       let {
         github_app_installation_id: installationId,
         github_app_id: id,
-        github_app_private_key_path: path
+        github_app_private_key_path: path,
+        github_api_root: githubApiRoot,
       } = context;
 
       // Allow installationId, id, path to be overridden via args
@@ -72,8 +87,12 @@ module.exports.templateTags = [
       id = tagId > 0 ? tagId : id;
       path = tagPath.length > 0 ? tagPath : path;
 
-      // Instatiate App with id, path
-      const app = new App({ id, privateKey: getPrivateKey(path) });
+      // Instatiate App with id, path, apiRoot
+      const app = new App({
+        id,
+        privateKey: getPrivateKey(path),
+        baseUrl: githubApiRoot,
+      });
 
       // Return installation access token
       return app.getCachedInstallationAccessToken({ installationId });
