@@ -27,7 +27,11 @@ module.exports.templateTags = [
     ],
     async run({ context }, ...args) {
       // Destructure id, path from context
-      let { github_app_id: id, github_app_private_key_path: path, github_api_root: githubApiRoot = 'https://api.github.com' } = context;
+      let {
+        github_app_id: id,
+        github_app_private_key_path: path,
+        github_api_root: githubApiRoot = 'https://api.github.com'
+      } = context;
 
       // Allow id, path to be overridden via args
       const [tagId = 0, tagPath = ''] = args;
@@ -78,7 +82,7 @@ module.exports.templateTags = [
         github_app_installation_id: installationId,
         github_app_id: id,
         github_app_private_key_path: path,
-        github_api_root: githubApiRoot,
+        github_api_root: githubApiRoot
       } = context;
 
       // Allow installationId, id, path to be overridden via args
@@ -91,7 +95,7 @@ module.exports.templateTags = [
       const app = new App({
         id,
         privateKey: getPrivateKey(path),
-        baseUrl: githubApiRoot,
+        baseUrl: githubApiRoot
       });
 
       // Return installation access token
