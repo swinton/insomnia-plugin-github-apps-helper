@@ -25,15 +25,15 @@
     "flat-cache": "^2.0.1"
   },
   "devDependencies": {
-    "eslint": "^5.13.0",
-    "eslint-config-airbnb": "^17.1.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.1",
     "eslint-config-prettier": "^3.6.0",
-    "eslint-plugin-import": "^2.16.0",
-    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^2.7.0",
-    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-react": "^7.19.0",
     "jest": "^25.1.0",
-    "prettier": "^1.16.4"
+    "prettier": "^1.19.1"
   },
   "engines": {
     "node": ">= 8.3.0"
