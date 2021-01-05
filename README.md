@@ -1,4 +1,4 @@
-# `github-apps-helper`
+# `github-apps-helper` ![](https://github.com/swinton/insomnia-plugin-github-apps-helper/workflows/tests/badge.svg)
 
 > :sleeping: **Insomnia** [template tags](https://support.insomnia.rest/article/40-template-tags) for interacting with GitHub APIs using **[GitHub Apps](https://developer.github.com/apps/)**
 

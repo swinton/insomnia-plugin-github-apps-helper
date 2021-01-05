@@ -17,14 +17,17 @@
     "insomnia"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "lint": "eslint index.js lib/**.js --fix"
   },
   "dependencies": {
-    "@octokit/app": "^2.2.1",
+    "@octokit/auth-app": "^2.10.5",
+    "@octokit/core": "^3.2.4",
+    "@octokit/request": "^5.4.12",
     "flat-cache": "^2.0.1"
   },
   "devDependencies": {
+    "@jamesacarr/jest-reporter-github-actions": "0.0.3",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.1",
     "eslint-config-prettier": "^3.6.0",
@@ -32,7 +35,8 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^2.7.0",
     "eslint-plugin-react": "^7.19.0",
-    "jest": "^25.1.0",
+    "jest": "^25.5.4",
+    "nock": "^13.0.5",
     "prettier": "^1.19.1"
   },
   "engines": {
