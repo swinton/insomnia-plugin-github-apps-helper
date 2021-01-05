@@ -1,5 +1,6 @@
 const fs = require('fs');
-const App = require('./lib/app');
+const { request } = require('@octokit/request');
+const app = require('./lib/app');
 
 const getPrivateKey = path => fs.readFileSync(path);
 
@@ -26,23 +27,25 @@ module.exports.templateTags = [
       }
     ],
     async run({ context }, ...args) {
-      // Destructure id, path from context
-      let { github_app_id: id, github_app_private_key_path: path, github_api_root: githubApiRoot = 'https://api.github.com' } = context;
+      // Destructure appId, path from context
+      let { github_app_id: appId, github_app_private_key_path: path } = context;
 
       // Allow id, path to be overridden via args
       const [tagId = 0, tagPath = ''] = args;
-      id = tagId > 0 ? tagId : id;
+      appId = tagId > 0 ? tagId : appId;
       path = tagPath.length > 0 ? tagPath : path;
 
-      // Instatiate App with id, path, apiRoot
-      const app = new App({
-        id,
-        privateKey: getPrivateKey(path),
-        baseUrl: githubApiRoot
+      // Initialize request defaults
+      request.defaults({
+        baseUrl: context.github_api_root || 'https://api.github.com'
       });
 
       // Return JWT
-      return app.getSignedJsonWebToken();
+      return app.getJsonWebToken({
+        appId,
+        privateKey: getPrivateKey(path),
+        request
+      });
     }
   },
   {
@@ -73,29 +76,26 @@ module.exports.templateTags = [
       }
     ],
     async run({ context }, ...args) {
-      // Destructure installationId, id, path from context
+      // Destructure installationId, appId, path from context
       let {
         github_app_installation_id: installationId,
-        github_app_id: id,
-        github_app_private_key_path: path,
-        github_api_root: githubApiRoot,
+        github_app_id: appId,
+        github_app_private_key_path: path
       } = context;
 
       // Allow installationId, id, path to be overridden via args
       const [tagInstallationId = 0, tagId = 0, tagPath = ''] = args;
       installationId = tagInstallationId > 0 ? tagInstallationId : installationId;
-      id = tagId > 0 ? tagId : id;
+      appId = tagId > 0 ? tagId : appId;
       path = tagPath.length > 0 ? tagPath : path;
 
-      // Instatiate App with id, path, apiRoot
-      const app = new App({
-        id,
-        privateKey: getPrivateKey(path),
-        baseUrl: githubApiRoot,
+      // Initialize request defaults
+      request.defaults({
+        baseUrl: context.github_api_root || 'https://api.github.com'
       });
 
       // Return installation access token
-      return app.getCachedInstallationAccessToken({ installationId });
+      return app.getInstallationAccessToken({ appId, privateKey: getPrivateKey(path), installationId, request });
     }
   }
 ];
