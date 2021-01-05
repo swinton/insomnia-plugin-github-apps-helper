@@ -1,6 +1,7 @@
 jest.mock('fs');
 
 const fs = require('fs');
+const nock = require('nock');
 
 const { templateTags } = require('..');
 const privateKey = require('./fixtures/private-key');
@@ -14,6 +15,19 @@ describe('index.js', () => {
   beforeEach(() => {
     // Mocking of Date.now is required so we get consistent JWTs
     global.Date.now = jest.fn(() => new Date(Date.UTC(2021, 0, 1)));
+
+    // Mock requests to the GitHub API
+    nock('https://api.github.com')
+      .post('/app/installations/88/access_tokens')
+      .reply(201, {
+        token: 'v1.1f699f1069f60xxx',
+        expires_at: '1970-01-01T00:00:00Z',
+        permissions: {
+          issues: 'write',
+          contents: 'read'
+        },
+        repository_selection: 'selected'
+      });
 
     // Return our private key
     fs.readFileSync = jest.fn(() => privateKey);
@@ -34,5 +48,13 @@ describe('index.js', () => {
     );
   });
 
-  xit('generates an installation access token', async () => {});
+  it('generates an installation access token', async () => {
+    const context = {
+      github_app_installation_id: 88,
+      github_app_id: 42,
+      github_app_private_key_path: '/path/to/some/private/key.pem'
+    };
+    const token = await getTag('installation_access_token')({ context });
+    expect(token).toBe('v1.1f699f1069f60xxx');
+  });
 });

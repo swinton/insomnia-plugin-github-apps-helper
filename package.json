@@ -36,6 +36,7 @@
     "eslint-plugin-prettier": "^2.7.0",
     "eslint-plugin-react": "^7.19.0",
     "jest": "^25.5.4",
+    "nock": "^13.0.5",
     "prettier": "^1.19.1"
   },
   "engines": {
