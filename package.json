@@ -11,14 +11,16 @@
     "url": "https://github.com/swinton/insomnia-plugin-github-apps-helper/issues"
   },
   "homepage": "https://github.com/swinton/insomnia-plugin-github-apps-helper#readme",
-  "main": "index.js",
+  "main": "dist/index.js",
   "license": "ISC",
   "keywords": [
     "insomnia"
   ],
   "scripts": {
     "test": "jest",
-    "lint": "eslint index.js lib/**.js --fix"
+    "lint": "eslint index.js lib/**.js tests/**.js",
+    "lint:fix": "npm run lint -- --fix",
+    "prepack": "ncc build index.js -o dist"
   },
   "dependencies": {
     "@octokit/auth-app": "^2.10.5",
@@ -28,6 +30,7 @@
   },
   "devDependencies": {
     "@jamesacarr/jest-reporter-github-actions": "0.0.3",
+    "@vercel/ncc": "^0.26.1",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.1",
     "eslint-config-prettier": "^3.6.0",
