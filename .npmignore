@@ -1,0 +1,5 @@
+# Ignore everything by default
+**/*
+
+# Include the (compiled) distribution
+!dist
