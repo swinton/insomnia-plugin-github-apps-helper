@@ -26,6 +26,7 @@
     "@octokit/auth-app": "^2.10.5",
     "@octokit/core": "^3.2.4",
     "@octokit/request": "^5.4.12",
+    "debug": "^4.3.1",
     "flat-cache": "^2.0.1"
   },
   "devDependencies": {
